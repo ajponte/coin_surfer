@@ -8,7 +8,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import argparse
 
-from src.agent.utils import build_csv_file_name
+from src.utils import build_csv_file_name
 
 
 def main():

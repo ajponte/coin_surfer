@@ -19,6 +19,10 @@ matplotlib = "3.10"
 
 scikit-learn = "1.6.0"
 
+# Statistical data visualization
+# see https://pypi.org/project/seaborn/
+seaborn = "0.13.2"
+
 # Static image export for web-based visualization libraries
 # See https://pypi.org/project/kaleido/
 kaleido = "1.0.0-rc.0"
