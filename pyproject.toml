@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "coin_surfer"
+version = "0.1.0"
+description = "AI Agent Logic for Crypto"
+license = "MIT"
+authors = ["Alan <alanjponte@gmail.com>"]
+maintainers = ["Alan <alanjponte@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+# connexion is a library that sits on top of Flask and implements OpenAPI/Swagger web applications.
+connexion = {version = "^3.1.0", extras = ["flask", "uvicorn", "swagger-ui"]}
+
+# Coinbase SDK
+cdp-sdk = "^0.13"
+
+matplotlib = "3.10"
+
+scikit-learn = "1.6.0"
+
+# Static image export for web-based visualization libraries
+# See https://pypi.org/project/kaleido/
+kaleido = "1.0.0-rc.0"
+
+pandas = "2.2.3"
+
+# Plot candlesticks
+# See https://github.com/plotly/plotly.py
+plotly = "6.0.0rc0"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+mypy = "*"
+pre-commit = "*"
+ruff = "*"
+
+[tool.poetry.group.test.dependencies]
+coverage = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
+tox = "*"
+
+[tool.poetry.extras]
+
+# [build-system]
+# requires = ["poetry>=0.12"]
+# build-backend = "poetry.masonry.api"
