@@ -10,7 +10,7 @@ import requests
 from datetime import datetime, timedelta
 import argparse
 
-from src.agent.utils import build_csv_file_name
+from src.utils import build_csv_file_name
 
 
 # Function to get historical data from Coinbase API
