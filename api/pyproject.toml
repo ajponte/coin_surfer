@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "Coin Surfer API Interfaces"
+version = "0.1.0"
+description = "Coin Surfer API Interfaces"
+authors = ["Alan Ponte <alan.ponte@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^8.3.3"
+flask = "^3.0.3"
+# Official coinbase SDK.
+coinbase-advanced-py = "^1.8.2"
+# connexion is a library that sits on top of Flask and implements OpenAPI/Swagger web applications.
+connexion = {version = "^3.1.0", extras = ["flask", "uvicorn", "swagger-ui"]}
+
+# [tool.poetry.scripts]
+# your_flask_app = "app:create_app"

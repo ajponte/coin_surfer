@@ -1,7 +1,7 @@
 import pandas
 from pandas import DataFrame
 
-from src.error import LoadDataFameException
+from trading.src.error import LoadDataFameException
 
 
 def load_df(input: str) -> DataFrame:

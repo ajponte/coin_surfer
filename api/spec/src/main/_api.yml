@@ -1,0 +1,63 @@
+openapi: "3.0.0"
+info:
+  title: "Coin Surfer Server"
+  description: "coin_surfer server component for API interfaces."
+  version: "1.0.0"
+servers:
+  - url: /api
+
+paths:
+  /health:
+    get:
+      tags: ["Health"]
+      operationId: "server.controllers.health.get_health"
+      summary: "Health check."
+      responses:
+        '200':
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /portfolio/{wallet_type}/{portfolio_id}:
+    get:
+      tags: ["Portfolio"]
+      operationId: "server.controllers.portfolio.get_portfolio"
+      summary: "Return details for a named portfolio."
+      parameters:
+        - name: wallet_type
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - coinbase
+              - metamask
+        - name: portfolio_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "Success. Document follows"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        '400':
+          description: "Bad Request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
