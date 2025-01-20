@@ -178,3 +178,7 @@ cython_debug/
 
 # Images
 *.png
+
+# Coinbase API key
+api/etc/coinbase/api_key/*
+
