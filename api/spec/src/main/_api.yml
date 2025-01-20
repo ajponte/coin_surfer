@@ -44,20 +44,32 @@ paths:
             type: string
       responses:
         '200':
-          description: "Success. Document follows"
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+          $ref: '#/components/responses/HttpPortfolioBreakdownGetResponseSuccess'
         '400':
-          description: "Bad Request"
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
+          $ref: '#/components/responses/HttpBadRequest'
+
+components:
+  responses:
+    HttpBadRequest:
+      description: 400 - Bad Request.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: A message for troubleshooting purposes.
+    HttpPortfolioBreakdownGetResponseSuccess:
+      description: '200 - Document will follow.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PortfolioBreakdown'
+
+  schemas:
+    PortfolioBreakdown:
+      type: object
+      properties:
+        data:
+          type: string
