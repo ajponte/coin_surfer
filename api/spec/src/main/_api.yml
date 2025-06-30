@@ -23,10 +23,28 @@ paths:
                   message:
                     type: string
 
-  /portfolio/{wallet_type}/{portfolio_id}:
+  /trading/{tradingId}/backtest:
+    get:
+      tags: ["Backtesting"]
+      operationId: "api.controllers.backtest.execute"
+      summary: "Execute a specific backtest."
+      parameters:
+        - name: tradingId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+          '200':
+            $ref: "#/components/responses/HttpTradingBacktestResponse"
+          '400':
+            $ref: '#/components/responses/HttpBadRequest'
+          '500':
+            $ref: '#/components/responses/HttInternalServerError'
+  /portfolio/{wallet_type}/{portfolioId}:
     get:
       tags: ["Portfolio"]
-      operationId: "server.controllers.portfolio.get_portfolio"
+      operationId: "api.controllers.portfolio.get_portfolio"
       summary: "Return details for a named portfolio."
       parameters:
         - name: wallet_type
@@ -37,7 +55,7 @@ paths:
             enum:
               - coinbase
               - metamask
-        - name: portfolio_id
+        - name: portfolioId
           in: path
           required: true
           schema:
@@ -47,11 +65,23 @@ paths:
           $ref: '#/components/responses/HttpPortfolioBreakdownGetResponseSuccess'
         '400':
           $ref: '#/components/responses/HttpBadRequest'
+        '500':
+          $ref: "#/components/responses/HttInternalServerError"
 
 components:
   responses:
     HttpBadRequest:
       description: 400 - Bad Request.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: A message for troubleshooting purposes.
+    HttInternalServerError:
+      description: 500 - Internal Server Error
       content:
         application/json:
           schema:
